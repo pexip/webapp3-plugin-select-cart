@@ -1503,9 +1503,9 @@ merge2@^1.3.0, merge2@^1.4.1:
   integrity sha512-8q7VEgMJW4J8tcfVPy8g09NcQwZdbwFEqhe/WZkoIzjn/3TGDwtOCYtXGxA3O8tPzpczCCDgv+P2P5y00ZJOOg==
 
 micromatch@^4.0.4:
-  version "4.0.7"
-  resolved "https://registry.npmjs.org/micromatch/-/micromatch-4.0.7.tgz"
-  integrity sha512-LPP/3KorzCwBxfeUuZmaR6bG2kdeHSbe0P2tY3FLRU4vYrjYz5hI4QZwV0njUx3jeuKe67YukQ1LSPZBKDqO/Q==
+  version "4.0.8"
+  resolved "https://registry.yarnpkg.com/micromatch/-/micromatch-4.0.8.tgz#d66fa18f3a47076789320b9b1af32bd86d9fa202"
+  integrity sha512-PXwfBhYu0hBCPw8Dn0E+WDYb7af3dSLVWKi3HGv84IdF4TyFoC0ysxFd0Goxw7nSv4T/PzEJQxsYsEiFCKo2BA==
   dependencies:
     braces "^3.0.3"
     picomatch "^2.3.1"
@@ -1663,8 +1663,8 @@ picomatch@^2.3.1:
   dependencies:
     "@pexip/components" "^16.12.0"
     "@pexip/plugin-api" "19.3.2"
-    plugin-template "file:../../../../../../../home/timwilking/.cache/yarn/v6/npm-plugin-template-1.0.0-7cd44fc0-5400-4761-9a2a-9a2000ac8e4a-1730805237503/node_modules/plugin-template"
-    webapp3-select-cart-plugin "file:../../../../../../../home/timwilking/.cache/yarn/v6/npm-plugin-template-1.0.0-7cd44fc0-5400-4761-9a2a-9a2000ac8e4a-1730805237503/node_modules/plugin-template"
+    plugin-template "file:."
+    webapp3-select-cart-plugin "file:."
 
 postcss@^8.4.38:
   version "8.4.38"
@@ -1929,8 +1929,8 @@ vite@^5.2.12:
   dependencies:
     "@pexip/components" "^16.12.0"
     "@pexip/plugin-api" "19.3.2"
-    plugin-template "file:../../../../../../../home/timwilking/.cache/yarn/v6/npm-webapp3-select-cart-plugin-1.0.0-6c504f15-5239-4003-b211-861dcccb7a1d-1730805237505/node_modules/webapp3-select-cart-plugin"
-    webapp3-select-cart-plugin "file:../../../../../../../home/timwilking/.cache/yarn/v6/npm-webapp3-select-cart-plugin-1.0.0-6c504f15-5239-4003-b211-861dcccb7a1d-1730805237505/node_modules/webapp3-select-cart-plugin"
+    plugin-template "file:."
+    webapp3-select-cart-plugin "file:."
 
 which@^2.0.1:
   version "2.0.2"
