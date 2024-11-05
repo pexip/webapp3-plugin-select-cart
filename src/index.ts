@@ -1,8 +1,13 @@
 import { registerPlugin } from '@pexip/plugin-api'
+import { PLUGIN_ID } from './constants'
+import { showDepartmentSelection, ToolbarButton } from './forms'
 
 const plugin = await registerPlugin({
-  id: 'plugin-template', // TODO: Change this to a unique ID for your plugin
+  id: PLUGIN_ID,
   version: 0
 })
 
-await plugin.ui.showToast({ message: 'Hello, world!' })
+const toolbarButton = await plugin.ui.addButton(ToolbarButton)
+toolbarButton.onClick.add(async () => {
+  await showDepartmentSelection(plugin)
+})

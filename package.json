@@ -1,5 +1,5 @@
 {
-  "name": "plugin-template",
+  "name": "webapp3-select-cart-plugin",
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
@@ -14,7 +14,10 @@
   "license": "ISC",
   "type": "module",
   "dependencies": {
-    "@pexip/plugin-api": "19.3.2"
+    "@pexip/components": "^16.12.0",
+    "@pexip/plugin-api": "19.3.2",
+    "plugin-template": "file:",
+    "webapp3-select-cart-plugin": "file:"
   },
   "devDependencies": {
     "eslint": "^8.1.0",
