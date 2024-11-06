@@ -7,7 +7,7 @@ let departments: Department[] = []
 
 export const ToolbarButton: RPCCallPayload<'ui:button:add'> = {
   position: 'toolbar',
-  icon: 'IconAdd',
+  icon: 'IconVideoSystems',
   tooltip: 'Add Cart',
   roles: ['chair']
 }

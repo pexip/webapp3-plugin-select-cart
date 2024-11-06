@@ -24,51 +24,8 @@
         "id": "cv.cart.1"
       },
       {
-        "label": "CVICU",
-        "id": "cvivu"
-      }
-    ]
-  },
-  "Pediatrics": {
-    "id": "4",
-    "carts": [
-      {
-        "label": "PEDS Cart 1",
-        "id": "peds.cart.1"
-      },
-      {
-        "label": "PEDS Cart 2",
-        "id": "peds.cart.2"
-      },
-      {
-        "label": "PICU",
-        "id": "picu"
-      }
-    ]
-  },
-  "Brick and Mortar": {
-    "id": "4",
-    "carts": [
-      {
-        "label": "Outpatient 1",
-        "id": "outpatient.1"
-      },
-      {
-        "label": "Outpatient 2",
-        "id": "outpatient.2"
-      }
-    ]
-  },
-  "Demo Carts": {
-    "id": "5",
-    "carts": [
-      {
-        "label": "DEMO-RJ",
-        "id": "demo.rj"
-      },
-      {
-        "label": "DEMO-CK",
-        "id": "demo.ck"
+        "label": "CV Cart 2",
+        "id": "cv.cart.2"
       }
     ]
   }
