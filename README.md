@@ -46,7 +46,7 @@ A dial out to the selected cart will be imitated
 ## Configuration
 
 To configure departments and carts for the plugin, use the JSON file
-(`departments.json`) located in the public folder. This file organizes
+(`departments.json`) located in the public/config folder. This file organizes
 departments and their associated carts, with each department having an ID and an
 array of carts (each with a unique label and ID).
 
