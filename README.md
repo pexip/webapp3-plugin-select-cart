@@ -1,4 +1,4 @@
-# Web App 3 Plugin: Select Cart Plugin
+# Web App 3 Plugin: Select Cart
 
 This plugin enables users to select specific carts from a department based on a
 predefined configuration. Once a cart is selected, the plugin initiates a call

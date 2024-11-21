@@ -1,5 +1,5 @@
 {
-  "name": "webapp3-select-cart-plugin",
+  "name": "webapp3-plugin-select-cart",
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
@@ -17,6 +17,7 @@
     "@pexip/components": "^16.17.0",
     "@pexip/plugin-api": "20.0.0",
     "plugin-template": "file:",
+    "webapp3-plugin-select-cart": "file:",
     "webapp3-select-cart-plugin": "file:"
   },
   "devDependencies": {
