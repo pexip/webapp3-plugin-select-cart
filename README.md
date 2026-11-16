@@ -1,65 +1,72 @@
 # Web App 3 Plugin: Select Cart
 
-This plugin enables users to select specific carts from a department based on a
-predefined configuration. Once a cart is selected, the plugin initiates a call
-to the cart through a SIP (Session Initiation Protocol) call.
+A plugin for Pexip Web App 3 that lets a host pick a department and then a cart
+from a predefined configuration. Once a cart is selected, the plugin dials out
+to it over SIP (Session Initiation Protocol).
+
+## Table of contents
+
+- [How to use](#how-to-use)
+- [Configuration](#configuration)
+- [Run for development](#run-for-development)
+- [Build for production](#build-for-production)
 
 ## How to use
 
-An additional button is added to the toolbar for participants with the "host"
-role. When the host clicks this button, a modal displays a list of configured
-departments. If no departments are configured, or if the configuration file is
-corrupted, an appropriate message is shown.
+The plugin adds a button to the toolbar for participants with the chair (host)
+role.
 
-<div align='center'>
+1. Click the toolbar button to open the selection dialog.
 
-![add cart video button](./docs/images/toolbar.png)
+   <div align='center'>
 
-</div>
+   ![Toolbar button](./docs/images/toolbar.png)
 
-The toolbar contains a button to open the selection dialog
+   </div>
 
-<div align='center'>
+2. Select a department from the list. If no departments are configured, or the
+   configuration file is invalid, a message is shown instead.
 
-![select department](./docs/images/department_selection.png)
+   <div align='center'>
 
-</div>
+   ![Department selection](./docs/images/department_selection.png)
 
-Select a department from provided list
+   </div>
 
-<div align='center'>
+3. Select a cart from the list. If the department has no carts, a message is
+   shown instead.
 
-![select cart](./docs/images/cart_selection.png)
+   <div align='center'>
 
-</div>
+   ![Cart selection](./docs/images/cart_selection.png)
 
-Select a cart from provided list and trigger a dial out
+   </div>
 
-<div align='center'>
+4. The plugin dials out to the selected cart.
 
-![dial out](./docs/images/dial_out.png)
+   <div align='center'>
 
-</div>
+   ![Dial out](./docs/images/dial_out.png)
 
-A dial out to the selected cart will be imitated
+   </div>
 
 ## Configuration
 
-To configure departments and carts for the plugin, use the JSON file
-(`departments.json`) located in the public/config folder. This file organizes
-departments and their associated carts, with each department having an ID and an
-array of carts (each with a unique label and ID).
+Both configuration files are located in [public/config](./public/config) and are
+loaded by the plugin at runtime.
 
-Each department in `departments.json` is structured as follows:
+### Departments (`departments.json`)
 
-- **Department Name**: A descriptive name for the department (e.g., "Emergency
-  Department"). This name is shown for selection in the dialog.
-- **id**: A unique identifier for the department, such as `"1"` for the
-  Emergency Department.
-- **carts**: An array of cart objects, where each cart has:
-  - **label**: A descriptive name for the cart (e.g., "ED Cart 1"). This name is shown for selection in the dialog.
-  - **id**: A unique identifier for the cart, used for targeting specific carts in SIP calls.
+This file defines the departments and their carts. Each key is a department
+name, shown in the selection dialog:
 
+- **Department name** (the key): A descriptive name, e.g. "Emergency
+  Department".
+- **id**: A unique identifier for the department, e.g. `"1"`.
+- **carts**: An array of cart objects, each with:
+  - **label**: A descriptive name shown in the dialog, e.g. "ED Cart 1".
+  - **id**: A unique identifier for the cart. It is used as the user part of the
+    SIP address that is dialed (`sip:<id>@<host>`).
 
 ```json
 {
@@ -95,9 +102,9 @@ Each department in `departments.json` is structured as follows:
   }
 }
 ```
-### Adding or Modifying Departments and Carts
 
-To add a new department or cart, update `departments.json` with new entries. For example, to add a new cart to the "Emergency Department," add a new object in the `carts` array for that department:
+To add a department or cart, add a new entry to this file. For example, to add a
+cart to the "Emergency Department", append an object to its `carts` array:
 
 ```json
 {
@@ -106,50 +113,65 @@ To add a new department or cart, update `departments.json` with new entries. For
 }
 ```
 
+### SIP (`sip.json`)
+
+This file defines how the dial out is made:
+
+- **host**: The SIP domain appended to the cart id, e.g. `"pexip.com"`.
+- **role**: The role of the dialed participant, either `"HOST"` or `"GUEST"`.
+
+```json
+{
+  "host": "pexip.com",
+  "role": "GUEST"
+}
+```
+
+With the configuration above, selecting "ED Cart 1" dials
+`sip:ed.cart.1@pexip.com`.
+
 ## Run for development
 
-- To be able to build the plugin, you need to comply with the following versions
-  or higher:
+Requirements:
 
-  | NodeJS   | NPM     |
-  | -------- | ------- |
-  | v20.12.2 | v10.5.0 |
+| Node.js            | npm           |
+| ------------------ | ------------- |
+| v20.19.0 or higher | v10 or higher |
 
-- Install all the dependencies:
+1. Install the dependencies:
 
-```bash
-$ npm i
-```
+   ```bash
+   npm install
+   ```
 
-- Run the dev environment:
+2. Start the development server:
 
-```bash
-$ npm start
-```
+   ```bash
+   npm start
+   ```
 
-The plugin will be served from https://localhost:5173 (visit that page and
-accept the self-signed certificates), but you should access it thought the Web
-App 3 URL. You have more information about how to configure your environment in
-the
+The plugin is served from <https://localhost:5173> (open that page once and
+accept the self-signed certificate), but you should access it through the Web
+App 3 URL. For more information on how to configure your environment, see the
 [Developer Portal: Setup guide for plugin developers](https://developer.pexip.com/docs/plugins/webapp-3/setup-guide-for-plugin-developers).
 
 ## Build for production
 
-To create a package, you will need to first install all the dependencies:
+1. Install the dependencies:
 
-```bash
-$ npm i
-```
+   ```bash
+   npm install
+   ```
 
-And now to create the package itself:
+2. Build the package:
 
-```bash
-$ npm run build
-```
+   ```bash
+   npm run build
+   ```
 
-Congrats! Your package is ready and it will be available in the `dist` folder.
-The next step is to create a Web App3 branding and copy `dist` into that
-branding.
+The package is created in the `dist` folder, including the `config` files from
+`public`. Next, create a Web App 3 branding and copy the contents of `dist` into
+it.
 
-If you want to know more about how to deploy your plugin in Pexip Infinity,
-check our [Developer Portal](https://developer.pexip.com).
+To learn more about deploying plugins in Pexip Infinity, see the
+[Developer Portal](https://developer.pexip.com).
