@@ -144,15 +144,30 @@ Requirements:
    npm install
    ```
 
-2. Start the development server:
+2. Create a `.env` file in the project root (see
+   [.env.example](./.env.example)):
+
+   ```bash
+   VITE_INFINITY_TARGET=https://your-pexip-infinity-server.com
+   # Optional, defaults to 5173
+   VITE_DEV_SERVER_PORT=5173
+   ```
+
+   - `VITE_INFINITY_TARGET` (required): the Pexip Infinity server hosting Web
+     App 3. The dev server proxies `/webapp3` and `/api` to it.
+   - `VITE_DEV_SERVER_PORT` (optional): the port of the local dev server.
+
+3. Start the development server:
 
    ```bash
    npm start
    ```
 
-The plugin is served from <https://localhost:5173> (open that page once and
-accept the self-signed certificate), but you should access it through the Web
-App 3 URL. For more information on how to configure your environment, see the
+The dev server opens Web App 3 at <https://localhost:5173/webapp3/> (accept the
+self-signed certificate on first use). It serves a development branding manifest
+at `/webapp3/branding/manifest.json` that loads the plugin from the local dev
+server, so no branding changes are needed on the Infinity server. For more
+information on how to configure your environment, see the
 [Developer Portal: Setup guide for plugin developers](https://developer.pexip.com/docs/plugins/webapp-3/setup-guide-for-plugin-developers).
 
 ## Build for production
