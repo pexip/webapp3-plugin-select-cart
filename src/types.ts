@@ -1,4 +1,12 @@
-import type { Option } from "@pexip/components";
+/**
+ * A selectable option
+ * @param id - The option id
+ * @param label - The option label
+ */
+export interface Option {
+  id: string;
+  label: string;
+}
 
 /**
  * The department configuration
