@@ -30,6 +30,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/).
 
 - The `@pexip/components` dependency. The `Option` type is now defined locally.
 - Stray `file:` self-dependencies from `package.json`.
+- Prettier and ESLint, including their configuration and lint script.
 
 ## [1.0.0]
 
